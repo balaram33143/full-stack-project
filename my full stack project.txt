@@ -12,7 +12,7 @@
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         .big-heading {
             font-size: 5rem;
             color: #2c3e50;
@@ -26,18 +26,18 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .list-container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         ul {
             list-style-type: none;
             padding: 0;
         }
-        
+
         li {
             background: rgba(255, 255, 255, 0.9);
             margin: 20px 0;
@@ -46,12 +46,12 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         li:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
-        
+
         h2 {
             color: #2c3e50;
             font-size: 2rem;
@@ -62,7 +62,7 @@
             padding-bottom: 10px;
             display: inline-block;
         }
-        
+
         button {
             background-color: #3498db;
             color: white;
@@ -75,17 +75,17 @@
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        
+
         button:hover {
             background-color: #2980b9;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        
+
         .home-button {
             background-color: #2ecc71;
         }
-        
+
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
@@ -94,25 +94,87 @@
             display: none;
             /* Initially hide the table */
         }
-        
+
         td,
         th {
             border: 1px solid #dddddd;
             text-align: left;
             padding: 8px;
         }
-        
+
         tr:nth-child(even) {
             background-color: #dddddd;
         }
-        
+
         .highlight {
             background-color: #ffeb3b;
         }
-        
+
         .special {
             background-color: #4CAF50;
             color: white;
+        }
+
+        .registration-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            max-width: 90%;
+            margin: 20px;
+        }
+
+        .registration-container h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-bottom: 2px solid #008fef;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .registration-container label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .registration-container input[type="text"],
+        .registration-container input[type="email"],
+        .registration-container input[type="password"],
+        .registration-container select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .registration-container button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+        }
+
+        .registration-container button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .registration-container .home-button {
+            background-color: #2ecc71;
         }
     </style>
     <script>
@@ -196,7 +258,53 @@
 
                 <li>
                     <h2>Registration Form</h2>
-                    <button onclick="window.location.href='registration.html'">Go to Registration</button>
+                    <div class="registration-container">
+                        <h2>Registration Form</h2>
+                        <form id="registrationForm">
+                            <label for="firstName">First Name:</label>
+                            <input type="text" id="firstName" name="firstName" required>
+
+                            <label for="lastName">Last Name:</label>
+                            <input type="text" id="lastName" name="lastName" required>
+
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" required>
+
+                            <label for="department">Department:</label>
+                            <select id="department" name="department">
+                                <option value="cse">Computer Science and Engineering</option>
+                                <option value="ece">Electronics and Communication Engineering</option>
+                                <option value="mech">Mechanical Engineering</option>
+                                <option value="civil">Civil Engineering</option>
+                            </select>
+
+                            <button type="submit">Register</button>
+                            <button type="button" class="home-button" onclick="window.location.href='index.html'">Return Home</button>
+                        </form>
+                    </div>
+                    <script>
+                        document.getElementById('registrationForm').addEventListener('submit', function (event) {
+                            event.preventDefault();
+
+                            const firstName = document.getElementById('firstName').value;
+                            const lastName = document.getElementById('lastName').value;
+                            const email = document.getElementById('email').value;
+                            const password = document.getElementById('password').value;
+                            const department = document.getElementById('department').value;
+
+                            console.log('Registration Details:');
+                            console.log('First Name:', firstName);
+                            console.log('Last Name:', lastName);
+                            console.log('Email:', email);
+                            console.log('Password:', password);
+                            console.log('Department:', department);
+
+                            alert('Registration Successful!');
+                        });
+                    </script>
                     <button class="home-button" onclick="window.location.href='index.html'">Return Home</button>
                 </li>
 
