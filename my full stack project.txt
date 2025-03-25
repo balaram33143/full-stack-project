@@ -275,8 +275,19 @@
 
                             <label for="department">Department:</label>
                             <select id="department" name="department">
+                              <option
+                                      value="ai&ds">Artificial intelligence data science engineering</option>
                                 <option value="cse">Computer Science and Engineering</option>
-                                <option value="ece">Electronics and Communication Engineering</option>
+                              <option
+                                      value="cse ai"> Computer Science and artifical intelligence engineering </option>
+                              <option
+                                      value="csd">Computer Science and data science</option>
+                              <option
+                                      value="csc">Computer Science and cyber security </option>
+                              <option
+value="ecm">Electronics and Computer Engineering
+                              </option>
+                                      <option value="ece">Electronics and Communication Engineering</option>
                                 <option value="mech">Mechanical Engineering</option>
                                 <option value="civil">Civil Engineering</option>
                             </select>
